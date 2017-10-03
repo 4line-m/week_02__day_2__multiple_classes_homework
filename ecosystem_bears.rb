@@ -6,6 +6,8 @@ class Bears
     @stomach = []
   end
 
-
+  def roar
+    return "Roarrr!!!"
+  end
 
 end

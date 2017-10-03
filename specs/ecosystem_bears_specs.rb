@@ -13,4 +13,9 @@ class TestBears < MiniTest::Test
   assert_equal("Yogi", @wee_bear.name)
   end
 
+  def test_bear_roar
+  result = @wee_bear.roar()
+  assert_equal("Roarrr!!!", result)
+  end
+
 end
