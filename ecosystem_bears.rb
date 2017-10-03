@@ -10,4 +10,8 @@ class Bears
     return "Roarrr!!!"
   end
 
+  def food_count
+    return @stomach.count()
+  end
+
 end
