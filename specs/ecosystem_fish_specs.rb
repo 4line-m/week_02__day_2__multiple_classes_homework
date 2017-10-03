@@ -6,14 +6,11 @@ require ("minitest/rg")
 class TestFish < MiniTest::Test
 
   def setup
-    @da_fish = Fish.new("Tuna Turner")
+    @fish = Fish.new("Tuna Turner")
   end
 
-  def test_get_da_fish_name
-  assert_equal("Tuna Turner", @da_fish.name)
+  def test_get_fish_name
+  assert_equal("Tuna Turner", @fish.name)
   end
-
-
-
 
 end

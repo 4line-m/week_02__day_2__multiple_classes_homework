@@ -1,26 +1,35 @@
 require_relative("../ecosystem_bears.rb")
 require_relative("../ecosystem_fish.rb")
+require_relative("../ecosystem_river.rb")
 require("minitest/autorun")
 require("minitest/rg")
 
-class TestBears < MiniTest::Test
+class TestBear < MiniTest::Test
 
   def setup
-    @wee_bear=Bears.new("Yogi")
+    @bear = Bear.new("Yogi")
+    @river = River.new("Amazon", [@fish])
+    @fish = Fish.new("Tuna Turner")
   end
 
   def test_bear_name
-  assert_equal("Yogi", @wee_bear.name)
+  assert_equal("Yogi", @bear.name)
   end
 
+  def test_takes_fish
+		@bear.takes_fish(@river)
+		assert_equal([@fish], @bear.stomach)
+		assert_equal([], @river.fish)
+	end
+
   def test_bear_roar
-  result = @wee_bear.roar()
+  result = @bear.roar()
   assert_equal("Roarrr!!!", result)
   end
 
   def test_bear_food_count
-  result = @wee_bear.food_count()
-  assert_equal(0, result)
-  end
+	@bear.takes_fish(@river)
+	assert_equal(1, @river.fish)
+	end
 
 end
